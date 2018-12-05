@@ -2,7 +2,7 @@ from bottle import route, run, request, abort, static_file
 
 from fsm import TocMachine
 
-VERIFY_TOKEN = "Hello World"
+VERIFY_TOKEN = "EAACxcf8Gk5ABAMNS7th1fmr8OkKE6mLlindxEnx6Wt9Eyk0jmpzbNU8Jua51DHIJFZA6qnzokXwFTSaP2dBCErc1vZB3HmTTKsuZAW136zT8zMXVxv8OMuCgUwM8owHZANdeEDykoNbz9Cnu8V6XQdIGSS8zRBwGjv5rTe0ZC3R8VkEr2e1LK"
 
 machine = TocMachine(
     states=[
