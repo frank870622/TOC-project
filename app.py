@@ -1,8 +1,9 @@
 from bottle import route, run, request, abort, static_file
-
+import os
 from fsm import TocMachine
 
-VERIFY_TOKEN = "EAACxcf8Gk5ABAMNS7th1fmr8OkKE6mLlindxEnx6Wt9Eyk0jmpzbNU8Jua51DHIJFZA6qnzokXwFTSaP2dBCErc1vZB3HmTTKsuZAW136zT8zMXVxv8OMuCgUwM8owHZANdeEDykoNbz9Cnu8V6XQdIGSS8zRBwGjv5rTe0ZC3R8VkEr2e1LK"
+VERIFY_TOKEN = os.environ['TOKEN']
+PORT = os.environ['5000']
 
 machine = TocMachine(
     states=[
@@ -252,4 +253,4 @@ def webhook_handler():
 #    return static_file('fsm.png', root='./', mimetype='image/png')
 
 if __name__ == "__main__":
-    run(host="localhost", port=5000, debug=True, reloader=True)
+    run(host="0.0.0.0", port=PORT, debug=True, reloader=True)
