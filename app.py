@@ -1,7 +1,10 @@
-from bottle import route, run, request, abort, static_file
 import os
+from bottle import route, run, request, abort, static_file
 from fsm import TocMachine
 
+
+#VERIFY_TOKEN = "verify"
+#PORT = 5000
 VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 PORT = os.environ['PORT']
 
@@ -253,4 +256,4 @@ def show_fsm():
     return static_file('fsm.png', root='./', mimetype='image/png')
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=PORT, debug=True, reloader=True)
+    run(host="0.0.0.0", port=PORT, debug=True, reloader=True)
