@@ -10,6 +10,7 @@ machine = TocMachine(
     states=[
         'user',
         'simon',
+        'demostate',
         'food',
             'bubble',
             'chicken',
@@ -45,6 +46,7 @@ machine = TocMachine(
             'source': [
                 'user',
                 'simon',
+                'demostate',
                 'food',
                     'bubble',
                     'chicken',
@@ -71,6 +73,12 @@ machine = TocMachine(
             ],
             'dest': 'simon',
             'conditions': 'is_going_to_simon'
+        },
+        {
+            'trigger': 'advance',
+            'source': 'simon',
+            'dest': 'demostate',
+            'conditions': 'is_going_to_demostate'
         },
         {
             'trigger': 'advance',

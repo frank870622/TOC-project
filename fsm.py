@@ -17,6 +17,12 @@ class TocMachine(GraphMachine):
             return 'simon' in text.lower()
         return False
 
+    def is_going_to_demostate(self, event):
+        if event.get("message"):
+            text = event['message']['text']
+            return '/help' in text
+        return False
+
     def is_going_to_food(self, event):
         if event.get("message"):
             text = event['message']['text']
@@ -159,6 +165,10 @@ class TocMachine(GraphMachine):
         sender_id = event['sender']['id']
         responese = send_text_message(sender_id,"希萌創意\nhttp://simon.moe/")
         responese = send_text_message(sender_id, "Simon，希萌創意\r\n關於希萌的一些作品們\r輸入 食用系少女 魔法少女ipass 屏東三巨頭 前進吧！！高捷少女\n輸入 simon 來回到這個頁面")
+
+    def on_enter_demostate(self, event):
+        sender_id = event['sender']['id']
+        send_text_message(sender_id, "i am enter demo state\n")
 
     def on_enter_food(self, event):
         sender_id = event['sender']['id']
